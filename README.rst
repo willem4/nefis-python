@@ -29,18 +29,33 @@ Building
 We aim to provide the binaries for different platforms as wheel files at pypi. If you want to install nefis from source you can follow the following steps:
 
 * Install Delft3D (includes the nefis library)
-* Install Anaconda
+* Install Anaconda (make environment and activate it)
 
-If you want to install the source code version (for developers) you can use pip install -e .
+.. code:: bash
+
+    conda create --name main python=2.7
+    source activate main
+
+* Set relevant paths for compilation 
 
 .. code:: bash
 
     export LIBRARY_PATH=$D3D_HOME/lib/:$LIBRARY_PATH
     export LD_LIBRARY_PATH=$D3D_HOME/bin/lnx64/flow2d3d/bin/:$LD_LIBRARY_PATH
-    conda create --name main python=2.7
-    source activate main
+    export LD_LIBRARY_PATH=$D3D_HOME/lib/:$LD_LIBRARY_PATH
+
+* Clone this git repository
+
+.. code:: bash
+
     git clone https://github.com/openearth/nefis-python
+
+* Go to the directory
+
     cd nefis-python
+
+* Install requirements, make install, install egg-info so that python knows where to find it, run the tests
+
     pip install -r requirements_dev.txt
     make install
     pip install -e .
