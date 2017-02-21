@@ -4,6 +4,7 @@ from codecs import open  # To use a consistent encoding
 from os import path
 from distutils.extension import Extension
 import sys
+import os 
 
 import numpy as np
 from Cython.Build import cythonize
@@ -25,6 +26,11 @@ with open('requirements_dev.txt') as requirements_dev_file:
     if sys.version_info < (3, 3):
         test_requirements.append('faulthandler')
 
+if os.name == 'posix':
+    libnefis = 'NefisSO'
+else:
+    libnefis = 'nefis'
+
 cmdclass = {}
 ext_modules = cythonize([
     Extension(
@@ -33,7 +39,7 @@ ext_modules = cythonize([
         ["nefis/cnefis.pyx"],
         # TODO: since Delft3D released in 2013 this is named NefisSO
         # rename it back and bundle it by default (using wheel files, for OSX, Linux and Windows)
-        libraries=["nefis"]
+        libraries=[libnefis]
     )
 ])
 
