@@ -52,9 +52,13 @@ We aim to provide the binaries for different platforms as wheel files at pypi. I
 
 * Go to the directory
 
+.. code:: bash
+
     cd nefis-python
 
 * Install requirements, make install, install egg-info so that python knows where to find it, run the tests
+
+.. code:: bash
 
     pip install -r requirements_dev.txt
     make install
