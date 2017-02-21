@@ -34,6 +34,7 @@ We aim to provide the binaries for different platforms as wheel files at pypi. I
 If you want to install the source code version (for developers) you can use pip install -e .
 
 .. code:: bash
+
     export LIBRARY_PATH=$D3D_HOME/lib/:$LIBRARY_PATH
     export LD_LIBRARY_PATH=$D3D_HOME/bin/lnx64/flow2d3d/bin/:$LD_LIBRARY_PATH
     conda create --name main python=2.7
